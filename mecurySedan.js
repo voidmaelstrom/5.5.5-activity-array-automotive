@@ -67,15 +67,11 @@ class mercurySedan extends Vehicle {
   }
 
   loadPassenger() {
-    if (this.passenger < this.maximumPassengers) {
-      if (this.passenger <= this.maximumPassengers) {
-          console.log(`A total of ${this.passenger} additional passenger(s) are in the car.`)
-          return this.passenger;               
-      } else {
-          console.log(this.model + " " + this.make + " not have enough space to take all passengers.");
-      }
+    if (this.passenger <= this.maximumPassengers) {
+        console.log(`A total of ${this.passenger} additional passenger(s) are in the car.`)
+        return this.passenger;               
     } else {
-      console.log(this.model + " " + this.make + " is full");
+        console.log(this.model + " " + this.make + ` does not have enough space to take all ${this.passenger} passengers!`);
     }
   }
 
@@ -89,14 +85,14 @@ class mercurySedan extends Vehicle {
     }
   }
 
-  scheduledService(mileage) {
+  scheduledService() {
     if (this.mileage > 30000) {            
       this.scheduleService == true
-      console.log("It is time to schedule service!")
-      return this.scheduleService;                       
+      console.log(`It is time to schedule service since your mileage is now ${this.mileage}!`)                       
     } else {
-      console.log("No scheduled service is needed at this time.")
+      console.log(`No scheduled service is needed at this time since your mileage (${this.mileage}) is less than 30000.`)
     }
+    return this.scheduleService;
   }
 }
 
@@ -113,7 +109,7 @@ console.log(newSedan.start());
 
 console.log(newSedan.scheduledService());
 
-let newEliteSportSedan = new mercurySedan("Mercury", "Sedan", "2022", "Red", 45000, 6, 3, 4, 250, 20);
+let newEliteSportSedan = new mercurySedan("Mercury", "Sedan", "2022", "Red", 45000, 6, 7, 4, 250, 20);
 
 console.log("2022 SEDAN DETAILS: ")
 
